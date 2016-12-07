@@ -32,7 +32,7 @@ Once the project moves into development, the press release can be used as a touc
   > Describe how your product elegantly solves the problem.
 
 ## Quote from You ##
-  >
+  > “Adventure is worthwhile.” – Aesop
 
 ## How to Get Started ##
   > Just head to our website and type in a loction!
