@@ -1,0 +1,22 @@
+{
+  "name": "majesticmushrooms",
+  "version": "1.0.0",
+  "description": "Greenfield project at Hack Reactor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majesticmushrooms/majesticmushrooms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majesticmushrooms/majesticmushrooms/issues"
+  },
+  "homepage": "https://github.com/majesticmushrooms/majesticmushrooms#readme"
+}
