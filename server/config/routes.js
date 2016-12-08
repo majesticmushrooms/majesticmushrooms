@@ -8,7 +8,7 @@ module.exports = (function() {
 
   router.get('/', PicCtrl.allPics);
 
-  router.post('/', PicCtrl.newPic);
+  router.post('/', PicCtrl.addPic);
 
   router.delete('/', PicCtrl.removePic);
 
