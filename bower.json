@@ -1,0 +1,21 @@
+{
+  "name": "majesticmushrooms",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "majestic-mushrooms team at hack reactor"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/majesticmushrooms/majesticmushrooms",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9"
+  }
+}
