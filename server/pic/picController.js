@@ -17,11 +17,12 @@ module.exports = {
 
   // adds pic to db
   addPic: function(req, res) {  
-    new Pic({  // todo: fill in values
-      // url:  
-      // longitude: 
-      // latitude: 
-      // searchTerm:  
+    new Pic({
+      url: req.body.url,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
+      searchTerm: req.body.searchTerm,
+      id: req.body.id 
     })
     .save()
     .then(function() {
@@ -32,7 +33,10 @@ module.exports = {
 
   // removes pic without waiting for a response from db
   removePic: function(req, res) {
-    Pic.remove({ /* url: insert_value_here */ }).exec();  // todo: fill in condition
+    Pic.remove({ id: res.body.id }).exec()
+    .then(function() {
+      console.log('removed pic from db');
+    });
   }
 
 };

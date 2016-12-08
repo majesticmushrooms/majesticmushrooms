@@ -1,5 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 
 //initialize the express server
 var app = express();
@@ -9,6 +11,9 @@ var app = express();
 
 //configure our routing in seperate file.
 require('./config/routes.js')(app, express);
+
+//parse body upon req
+app.use(bodyParser.json());
 
 //host the static files at client
 app.use(express.static(__dirname + '/client'));
