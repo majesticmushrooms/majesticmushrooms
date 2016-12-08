@@ -1,4 +1,4 @@
-var map = angular.module('appMaps', []);
+var map = angular.module('app', []);
 
 
 map.controller('MapController', ['$scope', function($scope) {
