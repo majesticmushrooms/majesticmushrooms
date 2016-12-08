@@ -1,5 +1,16 @@
-module.exports = function (app, express){
-  app.get('/', function(req, res) {
-    res.send('hello world');
-  });
-};
+var express = require('express');
+var PicCtrl = require('./picController.js');
+
+
+// route clients for get post and delete requests
+module.exports = (function() {
+  var router = express.Router();
+
+  router.get('/', PicCtrl.allPics);
+
+  router.post('/', PicCtrl.addPic);
+
+  router.delete('/', PicCtrl.removePic);
+
+  return router;
+})();
