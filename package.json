@@ -7,11 +7,10 @@
   },
   "dependencies": {
     "body-parser": "~1.15.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "ejs": "~2.5.2",
     "express": "~4.14.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "angular": "^1.5.9",
+    "mongoose": "^4.7.1",
+    "request": "^2.79.0",
   }
-}
