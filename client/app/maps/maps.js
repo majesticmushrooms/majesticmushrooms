@@ -1,5 +1,17 @@
 var map = angular.module('app.map', []);
 
+map.service('Geocoder', function() {
+
+  this.getLatLng = function(location, callback) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({address: location},
+      function(results, status) {
+        callback(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+      });
+  };
+
+});
+
 map.controller('MapController', function($scope, Geocoder) {
 
   $scope.markers = [];
