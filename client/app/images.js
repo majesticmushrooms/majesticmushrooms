@@ -30,7 +30,11 @@ app.factory('Images', function() {
         photo_id: id
       }, function(err, result) {
         if(err) { reject(err); }
-        resolve(result);
+        var output = {
+          longitude: result.photo.location.longitude,
+          latitude: result.photo.location.latitude
+        }
+        resolve(output);
       });
     });
   }
