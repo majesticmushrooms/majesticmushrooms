@@ -7,7 +7,7 @@ map.controller('MapController', ['$scope', function($scope) {
 
   var addMarker = function(lat, lng) {
     var marker = new google.maps.Marker({
-      position: {lat: lat, lng:lng},
+      position: {lat: lat, lng: lng},
       map: $scope.map,
       title: 'Hello World!'
     });
@@ -31,7 +31,7 @@ map.directive('myMap', function() {
       center: new google.maps.LatLng(50, 2),
       zoom: 10,
       scrollwheel: false,
-      show:true
+      show: true
     };
 
     // new instance of a google map, added to the first element in element
@@ -39,13 +39,13 @@ map.directive('myMap', function() {
       scope.map = new google.maps.Map(element[0], mapOptions);
 
       // Add click event listener, which call the $scope.click method
-      google.maps.event.addListener(scope.map, "click", function (event) {
+      google.maps.event.addListener(scope.map, 'click', function (event) {
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
         scope.click(lat, lng);
       }); //end addListener
 
-     };
+    };
 
     initMap();
   };
