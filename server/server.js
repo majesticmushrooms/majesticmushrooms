@@ -16,7 +16,7 @@ var app = express();
 app.use(bodyParser.json());
 
 //host the static files at client
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/../client'));
 
 //start server
 app.listen(8000);
