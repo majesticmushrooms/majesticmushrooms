@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "angular": "^1.5.9",
-    "flickrapi": "^0.6.0"
+    "flickrapi": "^0.6.0",
+    "bluebird": "^3.4.6"
   }
 }

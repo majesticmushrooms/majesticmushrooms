@@ -2,28 +2,15 @@ var map = angular.module('app.map', []);
 
 map.service('Geocoder', function() {
 
-  this.lookupAddress = function(address) {
+  this.getLatLng = function(location, callback) {
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({address: '2290A 15th Street, San Francisco, Ca'},
+    geocoder.geocode({address: location},
       function(results, status) {
-        console.log(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+        callback(results[0].geometry.location.lat(), results[0].geometry.location.lng());
       });
   };
 
 });
-
-// map.service('Geocoder', function() {
-
-//   this.lookupAddress = function(address) {
-//     var geocoder = new google.maps.Geocoder();
-//     geocoder.geocode({address: '2290A 15th Street, San Francisco, Ca'})
-//     .then(function(results, status) {
-//       console.log(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-//     });
-//   };
-
-// });
-
 
 map.controller('MapController', function($scope, Geocoder) {
 
@@ -44,7 +31,7 @@ map.controller('MapController', function($scope, Geocoder) {
     addMarker(lat, lng);
   };
 
-  Geocoder.lookupAddress();
+  Geocoder.getLatLng('2290A 15th Street, San Francisco, CA', console.log);
 
 });
 
