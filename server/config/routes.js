@@ -1,18 +1,16 @@
 var express = require('express');
-var router = express.Router();
+var PicCtrl = require('./picController.js');
 
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// route clients for get post and delete requests
+module.exports = (function() {
+  var router = express.Router();
 
-module.exports = router;
+  router.get('/', PicCtrl.allPics);
 
+  router.post('/', PicCtrl.newPic);
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  router.delete('/', PicCtrl.removePic);
 
-module.exports = router;
+  return router;
+})();
