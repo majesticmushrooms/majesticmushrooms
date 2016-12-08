@@ -1,10 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+  <link rel="stylesheet" href="stylesheets/style.css" />
+
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAFgELfCT5F1bqXCl8eBAHQnAEvx0eb44"></script>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app/maps.js"></script>
+
   <meta charset="UTF-8">
 </head>
-<body ng-app="docsTemplateUrlDirective">
-  <div>
+<body ng-app="appMaps">
+  <div id="map_canvas" ng-controller="MapController">
+    <my-map></my-map>
   </div>
 </body>
 </html>
