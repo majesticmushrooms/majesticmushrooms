@@ -8,7 +8,7 @@ var app = express();
 // mongoose.connect('mongodb://localhost/');
 
 //configure our routing in seperate file.
-require('./config/routes.js')(app, express);
+// require('./config/routes.js')(app, express);
 
 //host the static files at client
 app.use(express.static(__dirname + '/client'));
