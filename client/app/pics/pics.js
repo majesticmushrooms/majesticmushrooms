@@ -1,14 +1,20 @@
-angular.module('pics', [])
-.controller('pics', function ($scope, Images) {
+angular.module('app.pics', [])
+.controller('app.pics', function ($scope, Images) {
   $scope.pictures = '';
   $scope.selectedImageUrl = '';
-  //add the pictures to the front end in a carosel div or something
 
-  Images.getImagesFlickr('hong kong').then(
+  $scope.getImagesFlickr = function (searchBarText) {
+    console.log('clicked');
+    Images.getImagesFlickr(searchBarText).then(
     function(imageArray){
       //set images from helper fn to pictures scope var
       $scope.pictures = imageArray;
+      console.log('pictures', $scope.pictures);
+
     });
+  };
+
+  $scope.getImagesFlickr('hong kong');
 
   $scope.addInfoToDB = function($index) {
     //pass in image object to add to the database
