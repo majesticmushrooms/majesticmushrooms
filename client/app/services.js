@@ -1,5 +1,6 @@
 var services = angular.module('app.services', []);
 
+
 services.service('Geocoder', function() {
 
   this.getLatLng = function(location, callback) {
@@ -24,7 +25,6 @@ services.factory('Images', function() {
         has_geo: 1
       }, function(err, result) {
         if(err) { reject(err); }
-        console.log(result.photos.photo)
         var results = result.photos.photo.map(imageObject => {
           var ourImage = {};
           ourImage.url = 'https://farm'+imageObject.farm+'.staticflickr.com/'+ imageObject.server +
@@ -32,7 +32,6 @@ services.factory('Images', function() {
           ourImage.id = imageObject.id;
           return ourImage
         })
-        console.log(results);
         resolve(results);
       })
     })
