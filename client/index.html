@@ -21,13 +21,15 @@
 
 <body ng-app="app">
 
-    <div class="container" ng-include src="'searchBar.html'"></div>
+    <div class="container" ng-controller="picController" ng-include src="'searchBar.html'"></div>
 
     <div id="map_canvas" ng-controller="MapController">
         <my-map></my-map>
     </div>
 
     <div class="container" ng-controller="picController" ng-include src="'./app/pics/pics.html'"></div>
+    <div ng-controller="picController" ng-repeat='picture in picture.pictures'>{{picture}}</div>
+
 </body>
 
 </html>
