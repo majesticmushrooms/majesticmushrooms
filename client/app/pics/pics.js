@@ -1,6 +1,6 @@
 var pics = angular.module('app.pics', []);
 
-pics.controller('picController', function ($scope, Images) {
+pics.controller('picController', function ($scope, $http, Images) {
   $scope.picture = {};
   $scope.selectedImageUrl = '';
 
@@ -43,16 +43,32 @@ pics.controller('picController', function ($scope, Images) {
     });
   };
 
-  $scope.addInfoToDB = function($index) {
-    //pass in image object to add to the database
-    Images.getImageLocation($scope.pictures[$index].id).then(response => {
-      var imageObject = {
-        lat: response.Lat,
-        long: response.Long,
-        image: $scope.selectedImageUrl
-      };
-      Images.postToServer(imageObject);
+  $scope.addInfoToDB = function(lat, long, url, id, searchterm) {
+    var imageObject = {
+      url: url,
+      longitude: long,
+      latitude: lat,
+      searchTerm: searchterm,
+      id: id
+    };
+
+    $http({
+      method: 'POST',
+      url: '/',
+      data: imageObject
+    }).then(function successCallback(response) {
+      console.log('User info added to database');
+    }, function errorCallback(response) {
+      console.log('Error adding user info to db');
     });
+
+  };
+
+
+  $scope.enlarge = function(url) {
+    $scope.modalUrl = url;
+    console.log('clicked enlarge', $scope.modalUrl);
+    $('#myModal').modal('show');
   };
 
   // $scope.populatePictures(pictures) {

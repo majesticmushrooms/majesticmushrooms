@@ -6,7 +6,7 @@ var Pic = require('./picModel.js');
 module.exports = {
 
   // fetches all pics from db
-  allPics: function(req, res) {  
+  allPics: function(req, res) {
     Pic.find({}, function(err, pics) {
       if (err) {
         console.log(err);
@@ -16,13 +16,13 @@ module.exports = {
   },
 
   // adds pic to db
-  addPic: function(req, res) {  
+  addPic: function(req, res) {
     new Pic({
       url: req.body.url,
       longitude: req.body.longitude,
       latitude: req.body.latitude,
       searchTerm: req.body.searchTerm,
-      id: req.body.id 
+      id: req.body.id
     })
     .save()
     .then(function() {

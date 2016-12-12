@@ -5,24 +5,47 @@ map.controller('MapController', function($scope, Geocoder) {
   $scope.markers = [];
 
   //Add marker to map based on lat and lng
-  var addMarker = function(lat, lng) {
+  var addMarker = function(lat, lng, imageUrl) {
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: $scope.map,
-      title: 'Hello World!'
+    });
+
+    marker.index = $scope.markers.length;
+
+    marker.infoWindow = new google.maps.InfoWindow({
+      content: '<img class="hover" src=' + imageUrl + '>'
+    });
+
+    marker.addListener('mouseover', function() {
+      marker.infoWindow.open(map, marker);
+    });
+
+    marker.addListener('mouseout', function() {
+      marker.infoWindow.close();
+    });
+
+    marker.addListener('click', function() {
+      marker.setMap(null);
+      $scope.markers.splice(marker.index);
     });
 
     $scope.markers.push(marker);
-  };
 
-  //map click to add marker
-  $scope.clickMap = function(lat, lng) {
-    addMarker(lat, lng);
-    console.log('lat & lng from click', lat, lng);
+    //If more than 3 markers are placed, redraw map based on the bounds of those markers
+    if ($scope.markers.length > 3) {
+      $scope.map.bounds = new google.maps.LatLngBounds();
+      $scope.markers.forEach(function(marker) {
+        $scope.map.bounds.extend(marker.getPosition());
+      });
+      $scope.setMapBounds($scope.map.bounds);
+      console.log('scope.map.bounds', $scope.map.bounds);
+    }
+
   };
 
   $scope.generateMap = function(queryLoc) {
-    console.log(queryLoc);
+    $scope.markers = [];
     Geocoder.getLatLng(queryLoc, $scope.drawMap);
     Geocoder.getBounds(queryLoc, $scope.setMapBounds);
   };
@@ -32,10 +55,7 @@ map.controller('MapController', function($scope, Geocoder) {
   });
 
   $scope.$on('picClick', function(e) {
-    console.log('lat', $scope.$parent.lat);
-    console.log('lat', $scope.$parent.lng);
-    console.log(typeof $scope.$parent.lat);
-    addMarker($scope.$parent.lat, $scope.$parent.lng);
+    addMarker($scope.$parent.lat, $scope.$parent.lng, 'https://farm6.staticflickr.com/5616/31221074260_172af4d03e_m.jpg');
   });
 
 });
@@ -52,9 +72,8 @@ map.directive('myMap', function(Geocoder) {
     //Attempts to set bounds of scope.map, useful for scaling map based on size of desired area
     scope.setMapBounds = function(bounds) {
       if (bounds !== undefined) {
-        console.log('bounds', bounds);
-        console.log('map', scope.map);
         scope.map.fitBounds(bounds);
+        scope.map.bounds = bounds;
       }
     };
 
@@ -71,6 +90,9 @@ map.directive('myMap', function(Geocoder) {
 
       // Use mapOptions object to create a new map and save to scope.map
       scope.map = new google.maps.Map(scope.mapElement, mapOptions);
+
+      //Creat map bounds property
+      scope.map.bounds = new google.maps.LatLngBounds();
 
       // Add click event listener, which call the $scope.click method
       google.maps.event.addListener(scope.map, 'click', function (event) {

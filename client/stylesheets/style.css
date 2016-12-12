@@ -2,6 +2,8 @@
     display: table;
 }
 
+.gm-style-iw + div {display: none;}
+
 html, body{
   height: 100%;
   width: 100%;
@@ -27,4 +29,17 @@ html, body{
 #images {
   height:200px;
   width: 250px;
+}
+
+#thumbnail {
+  height: 260px;
+}
+
+.caption {
+  text-align: -webkit-right;
+}
+
+#mimg {
+  display: block;
+  margin: auto;
 }
