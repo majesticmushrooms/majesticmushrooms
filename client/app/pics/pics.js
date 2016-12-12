@@ -56,6 +56,7 @@ pics.controller('picController', function ($scope, $http, Images) {
       } else {
         console.log(token);
         var imageObject = {
+          token: token,
           url: url,
           longitude: long,
           latitude: lat,
