@@ -12,6 +12,7 @@ var app = express();
 
 //configure our routing in seperate file.
 
+
 //parse body upon req
 app.use(bodyParser.json());
 
