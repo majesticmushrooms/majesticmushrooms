@@ -1,9 +1,15 @@
 var pics = angular.module('app.pics', []);
 
 pics.controller('picController', function ($scope, Images) {
-  $scope.picture = {}
+  $scope.picture = {};
   $scope.selectedImageUrl = '';
 
+  $scope.searchQuery = '';
+  $scope.search = function(queryLoc) {
+    $scope.$broadcast ('someEvent');
+    $scope.searchQuery = queryLoc;
+    return $scope.searchQuery;
+  };
 
   $scope.getImagesFlickr = function (searchBarText) {
     Images.getImagesFlickr(searchBarText).then(
@@ -12,7 +18,7 @@ pics.controller('picController', function ($scope, Images) {
       $scope.picture.pictures = imageArray;
       console.log($scope.picture.pictures);
       $scope.$digest();
-    }).catch(function(err){
+    }).catch(function(err) {
       console.log('Error:', err);
     });
   };
