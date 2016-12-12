@@ -11,6 +11,14 @@ services.service('Geocoder', function() {
       });
   };
 
+  this.getBounds = function(location, callback) {
+    var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({address: location},
+    function(results, status) {
+      callback(results[0].geometry.bounds);
+    });
+  };
+
 });
 
 services.factory('Images', function() {
