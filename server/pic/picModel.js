@@ -12,11 +12,12 @@ db.once('open', function() {
 
 // create PicSchema
 var PicSchema = mongoose.Schema({
-  url: String,
+  url: {type: String, unique: true},
   longitude: String,
   latitude: String,
   searchTerm: String,
-  id: String
+  id: String,
+  token: String
 });
 
 // compile PicSchema into a model
