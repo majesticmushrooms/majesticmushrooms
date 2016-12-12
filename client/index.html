@@ -23,12 +23,26 @@
 
     <div class="container" ng-controller="picController" ng-include src="'searchBar.html'"></div>
 
-    <div id="map_canvas" ng-controller="MapController">
+<!--     <div id="map_canvas" ng-controller="MapController">
         <my-map></my-map>
-    </div>
+    </div> -->
 
-    <div class="container" ng-controller="picController" ng-include src="'./app/pics/pics.html'"></div>
-    <div ng-controller="picController" ng-repeat='picture in picture.pictures'>{{picture}}</div>
+<!--     <div class="container" ng-controller="picController" ng-include src="'./app/pics/pics.html'"></div>
+    <div ng-controller="picController" ng-repeat='picture in picture.pictures'>{{picture}}</div> -->
+
+<!-- Working version -->
+<!--     <div class="container" ng-controller="picController">
+        <ul ng-repeat="picture in pictures track by $index">
+        <img ng-src="{{picture.url}}"/> -->
+
+<div ng-controller="picController">
+    <div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="picture in pictures track by $index">
+        <a href="#" class="thumbnail">
+        <img ng-src="{{picture.url}}"/>
+        </a>
+    </div>
+</div>
 
 </body>
 

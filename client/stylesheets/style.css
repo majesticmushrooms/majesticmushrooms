@@ -1,4 +1,8 @@
 
+.row {
+    display: table;
+}
+
 html, body, #map_canvas, #gmap {
   height: 100%;
   width: 100%;
