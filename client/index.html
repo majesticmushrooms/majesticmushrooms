@@ -55,9 +55,9 @@
 
     <div class="col-md-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
       <div class="thumbnail">
-        <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng, picture.url)"/>
+        <img id='images' ng-src="{{picture.url}}"/>
         <div class="caption">
-          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart"></p></a>
+          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart" ng-click="picClick(picture.lat, picture.lng, picture.url); addInfoToDB(picture.lat, picture.lng, picture.url, picture.id, searchQuery)" pics></p></a>
           <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
           <a class="btn btn-success" role="button"><p class="glyphicon glyphicon-plus" ng-click="enlarge(picture.url)"></p></a>
         </div>

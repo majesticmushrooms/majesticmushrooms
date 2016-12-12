@@ -54,6 +54,8 @@ pics.controller('picController', function ($scope, $http, Images) {
       id: id
     };
 
+    console.log(imageObject);
+
     $http({
       method: 'POST',
       url: '/',
