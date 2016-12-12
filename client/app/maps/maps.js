@@ -13,9 +13,11 @@ map.controller('MapController', function($scope, Geocoder) {
 
     marker.index = $scope.markers.length;
 
+    console.log(imageUrl);
+
     imageUrl = imageUrl.slice(0, -4);
 
-    imageUrl += 'm.jpg';
+    imageUrl += '_m.jpg';
 
     console.log(imageUrl);
 
