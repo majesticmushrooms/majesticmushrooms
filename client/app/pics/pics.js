@@ -63,15 +63,15 @@ pics.controller('picController', function ($scope, $http, Images) {
     });
 
 
-  $scope.enlarge = function(url) {
-    $scope.modalUrl = url;
-    console.log('clicked enlarge', $scope.modalUrl);
-    $('#myModal').modal('show');
-  };
+    $scope.enlarge = function(url) {
+      $scope.modalUrl = url;
+      console.log('clicked enlarge', $scope.modalUrl);
+      $('#myModal').modal('show');
+    };
 
   // $scope.populatePictures(pictures) {
   //   return;
   // };
-
+  };
 
 });
