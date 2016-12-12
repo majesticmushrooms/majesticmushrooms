@@ -21,28 +21,73 @@
 
 <body ng-app="app">
 
-    <div class="container" ng-controller="picController" ng-include src="'searchBar.html'"></div>
+
+<div ng-controller="picController">
+    <div class="jumbotron" >
+        <h1>Travel App Thing</h1>
+        <p>Search a for a place for travel pictures. Something more interesting here..</p>
+        live search box
+        <div class="row">
+            <div class='col-md-12'>
+                <div class="input-group">
+                    <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
+                    <span class="input-group-btn">
+                        <a href='#map'>
+                        <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); " ng-href="#">
+                        <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+                        </button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <p ng-bind="searchQuery"></p>
+        <a name="map"></a>
+    </div>
+</div>
+    <div id="map_canvas" ng-controller="MapController">
+        <my-map></my-map>
+    </div>
+     <div ng-controller="picController" class="row">
+        <div class="col-xs-6 col-md-3" ng-model="pictures" ng-repeat="picture in pictures track by $index">
+            <a href="#" class="thumbnail">
+            <img ng-src="{{picture.url}}"/>
+            </a>
+        </div>
+    </div>
+
+<!-- </div> -->
+
+
+
+<!-- ** Search Bar **  -->
+
+<!--     <div class="container" ng-controller="picController" ng-include src="'searchBar.html'"> -->
+
+<!-- ** Map ** -->
 
 <!--     <div id="map_canvas" ng-controller="MapController">
         <my-map></my-map>
     </div> -->
 
-<!--     <div class="container" ng-controller="picController" ng-include src="'./app/pics/pics.html'"></div>
-    <div ng-controller="picController" ng-repeat='picture in picture.pictures'>{{picture}}</div> -->
 
-<!-- Working version -->
+<!-- ** Working version ** -->
+
 <!--     <div class="container" ng-controller="picController">
         <ul ng-repeat="picture in pictures track by $index">
         <img ng-src="{{picture.url}}"/> -->
 
-<div ng-controller="picController">
-    <div class="row">
-    <div class="col-xs-6 col-md-3" ng-repeat="picture in pictures track by $index">
-        <a href="#" class="thumbnail">
-        <img ng-src="{{picture.url}}"/>
-        </a>
-    </div>
-</div>
+<!-- ** Working Version with Bootstrap ** -->
+
+<!-- <div ng-controller="picController"> -->
+       <!--  <div class="row">
+            <div class="col-xs-6 col-md-3" ng-model="pictures" ng-repeat="picture in pictures track by $index">
+                <a href="#" class="thumbnail">
+                <img ng-src="{{picture.url}}"/>
+                </a>
+            </div>
+        </div>
+    </div> -->
 
 </body>
 
