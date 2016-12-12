@@ -1,5 +1,6 @@
 var services = angular.module('app.services', []);
 
+
 services.service('Geocoder', function() {
 
   this.getLatLng = function(location, callback) {

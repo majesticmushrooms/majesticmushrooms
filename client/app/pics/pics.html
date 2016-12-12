@@ -1,9 +1,6 @@
-<div class="row">
-  <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="..." alt="...">
-    </a>
-  </div>
+<div ng-controller='picController'>
+<h3>test shit</h3>
+<!-- <div>{{console.log('test',pictures[0])}}</div> -->
+<div>{{picture.pictures[0].url}}</div>
+<button ng-click="getImagesFlickr('hong kong')">button</button>
 </div>
-{{pictures}}
-{{selectedImageUrl}}
