@@ -23,49 +23,43 @@
 <body ng-app="app">
 
 <!-- -    <div class="container" ng-include src="'searchBar.html'"></div> -->
-   <div class="container" ng-controller="picController" id="mapthing">
-     <div class="jumbotron">
-         <h1>Travel App Thing</h1>
-         <p>Search a for a place for travel pictures. Something more interesting here..</p>
-         <div class="col-md-12">
-             <div>
-                 <div class="input-group">
-                     <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
-                     <span class="input-group-btn">
-                       <a href='#map'>
-                       <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); search(searchQuery)" ng-href="#">
-                         <span class=" glyphicon glyphicon-search SearchIcon" ></span>
-                       </button>
-                     </a>
-                     </span>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-     <my-map></my-map>
+  <div class="container" ng-controller="picController" id="mapthing">
+    <div class="jumbotron">
+      <h1>Travel App Thing</h1>
+      <p>Search a for a place for travel pictures. Something more interesting here..</p>
+      <div class="col-md-12">
+        <div>
+          <div class="input-group">
+            <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
+            <span class="input-group-btn">
+              <a href='#map'>
+                <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); search(searchQuery)" ng-href="#">
+                  <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+                </button>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
+    <my-map></my-map>
 
 
-       <div class="col-md-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
-         <div class="thumbnail">
-           <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng)"/>
-           <div class="caption">
-             <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart"></p></a>
-            <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
-           </div>
-         </div>
-       </div>
+    <div class="col-md-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
+      <div class="thumbnail">
+        <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng)"/>
+        <div class="caption">
+          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart"></p></a>
+          <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
+          <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-plus"></p></a>
+        </div>
+      </div>
+    </div>
 
 
+  </div>
 
-
-   </div>
-
-
-
-
- </body>
-
- </html>
+</body>
+</html>
