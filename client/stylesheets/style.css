@@ -1,10 +1,15 @@
-
 .row {
     display: table;
 }
 
-html, body, #map_canvas, #gmap {
+html, body{
   height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+#map_canvas, #gmap {
+  height: 75%;
   width: 100%;
   margin: 0px;
 }

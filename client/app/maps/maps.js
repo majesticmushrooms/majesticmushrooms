@@ -37,6 +37,7 @@ map.directive('myMap', function(Geocoder) {
     scope.setMapBounds = function(bounds) {
       if (bounds !== undefined) {
         console.log('bounds', bounds);
+        console.log('map', scope.map);
         scope.map.fitBounds(bounds);
       }
     };
