@@ -1,21 +1,22 @@
 var pics = angular.module('app.pics', []);
 
 pics.controller('picController', function ($scope, Images) {
-  $scope.picture = {}
+  // $scope.pictures = {}
   $scope.selectedImageUrl = '';
 
   $scope.getImagesFlickr = function (searchBarText) {
     Images.getImagesFlickr(searchBarText).then(
     function(imageArray) {
       //set images from helper fn to pictures scope var
-      $scope.picture.pictures = imageArray;
+      $scope.pictures = imageArray;
+      console.log('imageArray', imageArray);
       $scope.$digest();
-    }).catch(function(err){
+    }).catch(function(err) {
       console.log('Error:', err);
     });
   };
 
-  // $scope.getImagesFlickr('hong kong');
+  $scope.getImagesFlickr('Hawaii');
 
   $scope.addInfoToDB = function($index) {
     //pass in image object to add to the database
