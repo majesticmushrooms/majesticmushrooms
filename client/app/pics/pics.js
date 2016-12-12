@@ -62,16 +62,17 @@ pics.controller('picController', function ($scope, $http, Images) {
       console.log('Error adding user info to db');
     });
 
+  };
 
-    $scope.enlarge = function(url) {
-      $scope.modalUrl = url;
-      console.log('clicked enlarge', $scope.modalUrl);
-      $('#myModal').modal('show');
-    };
+
+  $scope.enlarge = function(url) {
+    $scope.modalUrl = url;
+    console.log('clicked enlarge', $scope.modalUrl);
+    $('#myModal').modal('show');
+  };
 
   // $scope.populatePictures(pictures) {
   //   return;
   // };
-  };
 
 });
