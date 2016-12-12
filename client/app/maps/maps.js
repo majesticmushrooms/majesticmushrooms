@@ -13,6 +13,12 @@ map.controller('MapController', function($scope, Geocoder) {
 
     marker.index = $scope.markers.length;
 
+    imageUrl = imageUrl.slice(0, -4);
+
+    imageUrl += 'm.jpg';
+
+    console.log(imageUrl);
+
     marker.infoWindow = new google.maps.InfoWindow({
       content: '<img class="hover" src=' + imageUrl + '>'
     });
@@ -55,7 +61,7 @@ map.controller('MapController', function($scope, Geocoder) {
   });
 
   $scope.$on('picClick', function(e) {
-    addMarker($scope.$parent.lat, $scope.$parent.lng, 'https://farm6.staticflickr.com/5616/31221074260_172af4d03e_m.jpg');
+    addMarker($scope.$parent.lat, $scope.$parent.lng, $scope.$parent.imageUrl);
   });
 
 });
