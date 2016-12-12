@@ -77,9 +77,4 @@ pics.controller('picController', function ($scope, $http, Images) {
   //   return;
   // };
 
-<<<<<<< HEAD
-=======
-  };
-
->>>>>>> Fix merge conflict error
 });
