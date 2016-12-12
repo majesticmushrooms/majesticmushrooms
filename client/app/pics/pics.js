@@ -5,7 +5,7 @@ angular.module('pics', [])
   //add the pictures to the front end in a carosel div or something
 
   Images.getImagesFlickr('hong kong').then(
-    function(imageArray){
+    function(imageArray) {
       //set images from helper fn to pictures scope var
       $scope.pictures = imageArray;
     });

@@ -6,9 +6,16 @@ services.service('Geocoder', function() {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({address: location},
       function(results, status) {
-        console.log(location);
         callback(results[0].geometry.location.lat(), results[0].geometry.location.lng());
       });
+  };
+
+  this.getBounds = function(location, callback) {
+    var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({address: location},
+    function(results, status) {
+      callback(results[0].geometry.bounds);
+    });
   };
 
 });
