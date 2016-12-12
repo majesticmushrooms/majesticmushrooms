@@ -17,7 +17,8 @@ map.controller('MapController', function($scope, Geocoder) {
 
   //map click to add marker
   $scope.clickMap = function(lat, lng) {
-    console.log(lat, lng);
+    addMarker(lat, lng);
+    console.log('lat & lng from click', lat, lng);
   };
 
   $scope.generateMap = function(queryLoc) {
@@ -26,10 +27,15 @@ map.controller('MapController', function($scope, Geocoder) {
     Geocoder.getBounds(queryLoc, $scope.setMapBounds);
   };
 
-  $scope.$on('someEvent', function(e) {
-    console.log('e', e);
-    console.log('parent searchQuery', $scope.$parent.searchQuery );
+  $scope.$on('search', function(e) {
     $scope.generateMap($scope.$parent.searchQuery);
+  });
+
+  $scope.$on('picClick', function(e) {
+    console.log('lat', $scope.$parent.lat);
+    console.log('lat', $scope.$parent.lng);
+    console.log(typeof $scope.$parent.lat);
+    addMarker($scope.$parent.lat, $scope.$parent.lng);
   });
 
 });
@@ -75,7 +81,6 @@ map.directive('myMap', function(Geocoder) {
 
     };
 
-    // scope.generateMap('San Francisco');
   };
 
   return {

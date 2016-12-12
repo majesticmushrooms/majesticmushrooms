@@ -47,7 +47,7 @@
 
      <div class="col-xs-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
            <a href="#" class="thumbnail">
-           <img id='images' ng-src="{{picture.url}}"/>
+           <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng)"/>
            </a>
      </div>
    </div>
