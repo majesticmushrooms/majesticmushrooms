@@ -13,10 +13,12 @@ pics.controller('picController', function ($scope, $http, Images) {
 
   $scope.lat = 0;
   $scope.lng = 0;
-  $scope.picClick = function(lat, lng) {
+  $scope.imageUrl = '';
+  $scope.picClick = function(lat, lng, imageUrl) {
     console.log('lat & long', lat, lng);
     $scope.lat = Number(lat);
     $scope.lng = Number(lng);
+    $scope.imageUrl = imageUrl;
     $scope.$broadcast ('picClick');
     console.log($scope.lat, $scope.lng);
     return $scope.latLng;
@@ -52,6 +54,8 @@ pics.controller('picController', function ($scope, $http, Images) {
       id: id
     };
 
+    console.log(imageObject);
+
     $http({
       method: 'POST',
       url: '/',
@@ -64,6 +68,8 @@ pics.controller('picController', function ($scope, $http, Images) {
   };
 
 
+
+
   $scope.enlarge = function(url) {
     $scope.modalUrl = url;
     console.log('clicked enlarge', $scope.modalUrl);
@@ -73,6 +79,5 @@ pics.controller('picController', function ($scope, $http, Images) {
   // $scope.populatePictures(pictures) {
   //   return;
   // };
-
 
 });

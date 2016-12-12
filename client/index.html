@@ -4,30 +4,35 @@
 <head>
     <title>Around80</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
-
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAFgELfCT5F1bqXCl8eBAHQnAEvx0eb44"></script>
-    <script src='./bower_components/flickrapi/browser/flickrapi.dev.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="app/maps/maps.js"></script>
-
     <script src="app/pics/pics.js"></script>
     <script src="app/services.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/resources/facebook.js"></script>
+    <script src="app/library/flickrapi.dev.js"></script>
     <meta charset="UTF-8">
 </head>
 
 <body ng-app="app">
 
+<div id="facebook">
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+  <div id="status">
+  </div>
+</div>
+
 <div class="container" ng-controller="picController" id="mapthing">
   <!-- <div class="jumbotron"> -->
     <h1 class="display-1">Around80</h1>
       <p>Type in a destination and add a pin to the map.</p>
+
       <div class="col-md-12">
         <div>
           <div class="input-group">
@@ -50,11 +55,11 @@
 
     <div class="col-md-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
       <div class="thumbnail">
-        <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng)"/>
+        <img id='images' ng-src="{{picture.url}}"/>
         <div class="caption">
-          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart"></p></a>
+          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart" ng-click="picClick(picture.lat, picture.lng, picture.url); addInfoToDB(picture.lat, picture.lng, picture.url, picture.id, searchQuery)" pics></p></a>
           <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
-          <a class="btn btn-warning" role="button"><p class="glyphicon glyphicon-plus" ng-click="enlarge(picture.url)"></p></a>
+          <a class="btn btn-success" role="button"><p class="glyphicon glyphicon-plus" ng-click="enlarge(picture.url)"></p></a>
         </div>
       </div>
     </div>
@@ -78,6 +83,9 @@
 
 </body>
 </html>
+
+
+
 <!--    <div class="container" ng-controller="picController" id="mapthing">
      <div class="jumbotron">
          <h1>Travel App Thing</h1>
