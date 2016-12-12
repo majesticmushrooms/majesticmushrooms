@@ -49,23 +49,30 @@ pics.controller('picController', function ($scope, $http, Images) {
   };
 
   $scope.addInfoToDB = function(lat, long, url, id, searchterm) {
-    var imageObject = {
-      url: url,
-      longitude: long,
-      latitude: lat,
-      searchTerm: searchterm,
-      id: id
-    };
-
-    $http({
-      method: 'POST',
-      url: '/',
-      data: imageObject
-    }).then(function successCallback(response) {
-      console.log('User info added to database');
-    }, function errorCallback(response) {
-      console.log('Error adding user info to db');
-    });
+    isLoggedIn(function (err, token) {
+      if (err) {
+        document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+      } else {
+        console.log(token);
+        var imageObject = {
+          url: url,
+          longitude: long,
+          latitude: lat,
+          searchTerm: searchterm,
+          id: id
+        };
+        $http({
+          method: 'POST',
+          url: '/',
+          data: imageObject
+        }).then(function successCallback(response) {
+          console.log('User info added to database');
+        }, function errorCallback(response) {
+          console.log('Error adding user info to db');
+        });
+      }
+    })
   };
 
 
