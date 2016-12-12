@@ -17,10 +17,17 @@
     <script src="app/pics/pics.js"></script>
     <script src="app/services.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/resources/facebook.js"></script>
+    
     <meta charset="UTF-8">
 </head>
 
 <body ng-app="app">
+
+<div id="facebook">
+  <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+</div>
 
 <!-- -    <div class="container" ng-include src="'searchBar.html'"></div> -->
    <div class="container" ng-controller="picController" id="mapthing">
