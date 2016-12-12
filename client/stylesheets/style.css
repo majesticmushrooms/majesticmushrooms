@@ -1,7 +1,13 @@
+#facebook {
+  text-align: -webkit-right;
+  display: flex;
+  align-content: space-between;
+  justify-content: flex-end;
+  align-items: stretch;
+}
 .row {
     display: table;
 }
-
 .gm-style-iw + div {display: none;}
 
 html, body{
@@ -42,4 +48,16 @@ html, body{
 #mimg {
   display: block;
   margin: auto;
+}
+
+.display-1 {
+  text-align: center;
+}
+
+.SearchIcon {
+  height: 30px;
+}
+
+.favs {
+  margin-right: 20px;
 }

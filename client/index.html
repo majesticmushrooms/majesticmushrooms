@@ -23,6 +23,7 @@
 <body ng-app="app">
 
 <div id="facebook">
+  <span class='favs'>Favorites</span>
   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
   <div id="status">
   </div>
@@ -30,17 +31,16 @@
 
 <div class="container" ng-controller="picController" id="mapthing">
   <!-- <div class="jumbotron"> -->
-    <h1 class="display-1">Around80</h1>
-      <p>Type in a destination and add a pin to the map.</p>
-
+    <h1 class="display-1"><img id="logo">Around80</h1>
+    <!--   <p class="lead">Type in a destination and add a pin to the map.</p> -->
       <div class="col-md-12">
         <div>
-          <div class="input-group">
-            <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
+          <div class="input-group input-lg">
+            <input type="text" ng-model="searchQuery" placeholder="Type in a destination and add it to the map..." class="form-control SearchBar input-lg" />
             <span class="input-group-btn">
               <a href='#map'>
                 <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); search(searchQuery)" ng-href="#">
-                  <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+                  <span class="glyphicon glyphicon-search SearchIcon"></span>
                 </button>
               </a>
             </span>
@@ -57,7 +57,7 @@
       <div class="thumbnail">
         <img id='images' ng-src="{{picture.url}}"/>
         <div class="caption">
-          <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart" ng-click="picClick(picture.lat, picture.lng, picture.url); addInfoToDB(picture.lat, picture.lng, picture.url, picture.id, searchQuery)" pics></p></a>
+          <a class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart" ng-click="picClick(picture.lat, picture.lng, picture.url); addInfoToDB(picture.lat, picture.lng, picture.url, picture.id, searchQuery)" pics></p></a>
           <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
           <a class="btn btn-success" role="button"><p class="glyphicon glyphicon-plus" ng-click="enlarge(picture.url)"></p></a>
         </div>
