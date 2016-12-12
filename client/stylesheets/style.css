@@ -13,3 +13,18 @@ html, body{
   width: 100%;
   margin: 0px;
 }
+
+#mapthing {
+  height: 100%;
+  width: 100%;
+}
+
+#map_canvas {
+  height: 400px;
+  width: 100%;
+}
+
+#images {
+  height:200px;
+  width: 250px;
+}

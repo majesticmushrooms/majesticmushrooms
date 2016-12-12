@@ -1,27 +1,23 @@
 var pics = angular.module('app.pics', []);
 
 pics.controller('picController', function ($scope, Images) {
-  $scope.pictures = [];
+  $scope.picture = {}
   $scope.selectedImageUrl = '';
+
 
   $scope.getImagesFlickr = function (searchBarText) {
     Images.getImagesFlickr(searchBarText).then(
     function(imageArray) {
       //set images from helper fn to pictures scope var
-      $scope.pictures.length = 0;
-      imageArray.forEach(function(picture) {
-        $scope.pictures.push(picture);
-      });
-      // $scope.pictures = imageArray;
-      console.log('searchBarText', searchBarText);
-      console.log('pictures', $scope.pictures);
-      $scope.$apply();
-    }).catch(function(err) {
+      $scope.picture.pictures = imageArray;
+      console.log($scope.picture.pictures);
+      $scope.$digest();
+    }).catch(function(err){
       console.log('Error:', err);
     });
   };
 
-  $scope.getImagesFlickr('Hawaii');
+  // $scope.getImagesFlickr('hong kong');
 
   $scope.addInfoToDB = function($index) {
     //pass in image object to add to the database
@@ -34,5 +30,9 @@ pics.controller('picController', function ($scope, Images) {
       Images.postToServer(imageObject);
     });
   };
+
+  // $scope.populatePictures(pictures) {
+  //   return;
+  // };
 
 });

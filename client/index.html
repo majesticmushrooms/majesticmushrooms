@@ -13,6 +13,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAFgELfCT5F1bqXCl8eBAHQnAEvx0eb44"></script>
     <script src='./bower_components/flickrapi/browser/flickrapi.dev.js'></script>
     <script src="app/maps/maps.js"></script>
+
     <script src="app/pics/pics.js"></script>
     <script src="app/services.js"></script>
     <script src="app/app.js"></script>
@@ -21,74 +22,39 @@
 
 <body ng-app="app">
 
+<!-- -    <div class="container" ng-include src="'searchBar.html'"></div> -->
+   <div class="container" ng-controller="picController" id="mapthing">
+     <div class="jumbotron">
+         <h1>Travel App Thing</h1>
+         <p>Search a for a place for travel pictures. Something more interesting here..</p>
+         <div class="col-md-12">
+             <div>
+                 <div class="input-group">
+                     <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
+                     <span class="input-group-btn">
+                       <a href='#map'>
+                       <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery)" ng-href="#">
+                         <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+                       </button>
+                     </a>
+                     </span>
+                 </div>
+             </div>
+         </div>
+     </div>
 
-<div ng-controller="picController">
-    <div class="jumbotron" >
-        <h1>Travel App Thing</h1>
-        <p>Search a for a place for travel pictures. Something more interesting here..</p>
-        live search box
-        <div class="row">
-            <div class='col-md-12'>
-                <div class="input-group">
-                    <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
-                    <span class="input-group-btn">
-                        <a href='#map'>
-                        <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); " ng-href="#">
-                        <span class=" glyphicon glyphicon-search SearchIcon" ></span>
-                        </button>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <p ng-bind="searchQuery"></p>
-        <a name="map"></a>
-    </div>
-</div>
-    <div id="map_canvas" ng-controller="MapController">
-        <my-map></my-map>
-    </div>
-     <div ng-controller="picController" class="row">
-        <div class="col-xs-6 col-md-3" ng-model="pictures" ng-repeat="picture in pictures track by $index">
-            <a href="#" class="thumbnail">
-            <img ng-src="{{picture.url}}"/>
-            </a>
-        </div>
-    </div>
+     <my-map></my-map>
 
-<!-- </div> -->
+     <div class="col-xs-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
+           <a href="#" class="thumbnail">
+           <img id='images' ng-src="{{picture.url}}"/>
+           </a>
+     </div>
+   </div>
 
 
 
-<!-- ** Search Bar **  -->
 
-<!--     <div class="container" ng-controller="picController" ng-include src="'searchBar.html'"> -->
+ </body>
 
-<!-- ** Map ** -->
-
-<!--     <div id="map_canvas" ng-controller="MapController">
-        <my-map></my-map>
-    </div> -->
-
-
-<!-- ** Working version ** -->
-
-<!--     <div class="container" ng-controller="picController">
-        <ul ng-repeat="picture in pictures track by $index">
-        <img ng-src="{{picture.url}}"/> -->
-
-<!-- ** Working Version with Bootstrap ** -->
-
-<!-- <div ng-controller="picController"> -->
-       <!--  <div class="row">
-            <div class="col-xs-6 col-md-3" ng-model="pictures" ng-repeat="picture in pictures track by $index">
-                <a href="#" class="thumbnail">
-                <img ng-src="{{picture.url}}"/>
-                </a>
-            </div>
-        </div>
-    </div> -->
-
-</body>
-
-</html>
+ </html>
