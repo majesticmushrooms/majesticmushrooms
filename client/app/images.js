@@ -35,18 +35,6 @@ app.factory('Images', function($http) {
     });
   };
 
-  // var postToServer = function(imageIdObject) {
-  //   $http({
-  //     method: 'POST',
-  //     url: '/',
-  //     data: imageIdObject
-  //   }).then(function successCallback(response) {
-  //     console.log('User info added to database');
-  //   }, function errorCallback(response) {
-  //     console.log('Error adding user info to db');
-  //   });
-  // };
-
   return {
     getImagesFlickr: getImagesFlickr,
     getImageLocation: getImageLocation,
