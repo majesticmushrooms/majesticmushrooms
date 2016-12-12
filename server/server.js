@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //initialize the database
-// mongoose.connect('mongodb://localhost/');
+// mongoose.connect('mongodb://localhost');
 
 //configure our routing in seperate file.
-// require('./config/routes.js')(app, express);
+require('./config/routes.js')(app, express);
 
 //parse body upon req
 app.use(bodyParser.json());
