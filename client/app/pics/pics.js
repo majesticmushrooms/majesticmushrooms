@@ -61,6 +61,7 @@ pics.controller('picController', function ($scope, $http, Images) {
     }, function errorCallback(response) {
       console.log('Error adding user info to db');
     });
+  };
 
 
   $scope.enlarge = function(url) {
