@@ -15,6 +15,7 @@ var app = express();
 
 //parse body upon req
 app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 8000));
 
 //host the static files at client
 app.use(express.static(__dirname + '/../client'));
@@ -24,7 +25,7 @@ app.use('/', routes);
 
 
 //start server
-app.listen(8000);
+app.listen(app.get('port'));
 console.log('App listening on port 8000');
 
 module.exports = app;
