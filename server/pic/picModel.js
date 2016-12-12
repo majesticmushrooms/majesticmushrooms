@@ -16,7 +16,8 @@ var PicSchema = mongoose.Schema({
   longitude: String,
   latitude: String,
   searchTerm: String,
-  id: String
+  id: String,
+  token: String
 });
 
 // compile PicSchema into a model
