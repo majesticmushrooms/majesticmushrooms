@@ -37,7 +37,7 @@ html, body{
   text-align: -webkit-right;
 }
 
-
-
-
-
+#mimg {
+  display: block;
+  margin: auto;
+}
