@@ -17,10 +17,26 @@ map.controller('MapController', function($scope, Geocoder) {
 
   //map click to add marker
   $scope.clickMap = function(lat, lng) {
-    console.log(lat, lng);
-    // Geocoder.getLatLng('944 Market St, San Francisco, CA', $scope.drawMap);
     addMarker(lat, lng);
+    console.log('lat & lng from click', lat, lng);
   };
+
+  $scope.generateMap = function(queryLoc) {
+    console.log(queryLoc);
+    Geocoder.getLatLng(queryLoc, $scope.drawMap);
+    Geocoder.getBounds(queryLoc, $scope.setMapBounds);
+  };
+
+  $scope.$on('search', function(e) {
+    $scope.generateMap($scope.$parent.searchQuery);
+  });
+
+  $scope.$on('picClick', function(e) {
+    console.log('lat', $scope.$parent.lat);
+    console.log('lat', $scope.$parent.lng);
+    console.log(typeof $scope.$parent.lat);
+    addMarker($scope.$parent.lat, $scope.$parent.lng);
+  });
 
 });
 
@@ -65,10 +81,6 @@ map.directive('myMap', function(Geocoder) {
 
     };
 
-    var queryLoc = 'San Francisco';
-
-    Geocoder.getLatLng(queryLoc, scope.drawMap);
-    Geocoder.getBounds(queryLoc, scope.setMapBounds);
   };
 
   return {
