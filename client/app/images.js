@@ -1,4 +1,4 @@
-app.factory('Images', function() {
+app.factory('Images', function($http) {
   var flickr = new Flickr({
     api_key: 'd1f8ae89e54867864f4acbf48d347518'
   });
@@ -32,18 +32,6 @@ app.factory('Images', function() {
         if (err) { reject(err); }
         resolve(result);
       });
-    });
-  };
-
-  var postToServer = function(imageIdObject) {
-    $http({
-      method: 'POST',
-      url: '/',
-      data: imageIdObject
-    }).then(function successCallback(response) {
-      console.log('User info added to database');
-    }, function errorCallback(response) {
-      console.log('Error adding user info to db');
     });
   };
 
