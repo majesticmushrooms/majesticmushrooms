@@ -28,3 +28,11 @@ html, body{
   height:200px;
   width: 250px;
 }
+
+#thumbnail {
+  height: 260px;
+}
+
+.caption {
+  text-align: -webkit-right;
+}

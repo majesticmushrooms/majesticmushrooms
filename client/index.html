@@ -45,11 +45,22 @@
 
      <my-map></my-map>
 
-     <div class="col-xs-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
-           <a href="#" class="thumbnail">
+
+
+
+       <div class="col-md-6 col-md-3" ng-model="searchQuery" ng-repeat='picture in picture.pictures'>
+         <div class="thumbnail">
            <img id='images' ng-src="{{picture.url}}" ng-click="picClick(picture.lat, picture.lng)"/>
-           </a>
-     </div>
+           <div class="caption">
+             <a href="#" class="btn btn-danger" role="button"><p class="glyphicon glyphicon-heart"></p></a>
+            <a href="#" class="btn btn-warning" role="button"><p class="glyphicon glyphicon-remove"></p></a>
+           </div>
+         </div>
+       </div>
+
+
+
+
    </div>
 
 
