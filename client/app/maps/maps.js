@@ -1,7 +1,7 @@
 var map = angular.module('app.map', []);
 
 map.controller('MapController', function($scope, Geocoder) {
-
+  $scope.queryLoc;
   $scope.markers = [];
 
   //Add marker to map based on lat and lng
@@ -72,7 +72,7 @@ map.directive('myMap', function(Geocoder) {
   };
 
   return {
-    template: '<div id="gmap"></div>',
+    template: ' <div id="map_canvas" ng-controller="MapController"><div id="gmap"></div></div>',
     replace: true,
     //function passed into link will modify the elements that the directive adds to the dom
     link: link,
@@ -80,4 +80,3 @@ map.directive('myMap', function(Geocoder) {
     scope: false
   };
 });
-

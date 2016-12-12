@@ -1,3 +1,4 @@
+
 <div class="jumbotron">
     <h1>Travel App Thing</h1>
     <p>Search a for a place for travel pictures. Something more interesting here..</p>
@@ -8,21 +9,15 @@
                 <input type="text" ng-model="searchQuery" placeholder="Search for a place..." class="form-control SearchBar" />
                 <span class="input-group-btn">
                   <a href='#map'>
-                  <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery); " ng-href="#">
+                  <button class="btn btn-defaul SearchButton" type="button" ng-click="getImagesFlickr(searchQuery)" ng-href="#">
                     <span class=" glyphicon glyphicon-search SearchIcon" ></span>
                   </button>
-                    </a>
+                </a>
                 </span>
+                <div ng-repeat='picture in picture.pictures'>{{picture}}</div>
             </div>
         </div>
     </div>
     <p ng-bind="searchQuery"></p>
     <a name="map"></a>
-</div>
- <div class="row">
-    <div class="col-xs-6 col-md-3" ng-model="pictures" ng-repeat="picture in pictures track by $index">
-        <a href="#" class="thumbnail">
-        <img ng-src="{{picture.url}}"/>
-        </a>
-    </div>
 </div>
