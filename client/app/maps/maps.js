@@ -5,10 +5,29 @@ map.controller('MapController', function($scope, Geocoder) {
   $scope.markers = [];
 
   //Add marker to map based on lat and lng
-  var addMarker = function(lat, lng) {
+  var addMarker = function(lat, lng, imageUrl) {
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: $scope.map,
+    });
+
+    marker.index = $scope.markers.length;
+
+    marker.infoWindow = new google.maps.InfoWindow({
+      content: '<img class="hover" src=' + imageUrl + '>'
+    });
+
+    marker.addListener('mouseover', function() {
+      marker.infoWindow.open(map, marker);
+    });
+
+    marker.addListener('mouseout', function() {
+      marker.infoWindow.close();
+    });
+
+    marker.addListener('click', function() {
+      marker.setMap(null);
+      $scope.markers.splice(marker.index);
     });
 
     $scope.markers.push(marker);
@@ -25,11 +44,6 @@ map.controller('MapController', function($scope, Geocoder) {
 
   };
 
-  //map click to add marker
-  $scope.clickMap = function(lat, lng) {
-    addMarker(lat, lng);
-  };
-
   $scope.generateMap = function(queryLoc) {
     $scope.markers = [];
     Geocoder.getLatLng(queryLoc, $scope.drawMap);
@@ -41,7 +55,7 @@ map.controller('MapController', function($scope, Geocoder) {
   });
 
   $scope.$on('picClick', function(e) {
-    addMarker($scope.$parent.lat, $scope.$parent.lng);
+    addMarker($scope.$parent.lat, $scope.$parent.lng, 'https://farm6.staticflickr.com/5616/31221074260_172af4d03e_m.jpg');
   });
 
 });
