@@ -21,38 +21,37 @@
 
 ## Usage
 
-> Start by logging into your facebook account, then search for a destination and see a map of the location and with live pictures pulled from the Flicker API/
-
-Scroll down and click on pictures to enlarge for a better look, and if you like it, add it as a favorite to see where it was taken.
-
-If you change your mind, click on the map pin to remove it as a favorite
+> Start by logging into your facebook account, then search for a destination and see a map of the location and with live pictures pulled from the Flicker API. Scroll down and click on pictures to enlarge for a better look, and if you like it, add it as a favorite to see where it was taken. If you change your mind, click on the map pin to remove it as a favorite
 
 
 ## Requirements
 
-  angular: ^1.5.9,
-  angular-filter: ^0.5.14,
-  body-parser: ~1.15.2,
-  mongoose: ^4.7.1,
-  flickrapi: ^0.6.0,
-  bluebird: ^3.4.6
-  express: ~4.14.0
+  angular: 1.5.9,
+  angular-filter: 0.5.14,
+  body-parser: 1.15.2,
+  mongoose: 4.7.1,
+  flickrapi: 0.6.0,
+  bluebird: 3.4.6
+  express: 4.14.0
 
 ## Development
 
-  bower: ^1.8.0,
-  nodemon: ^1.11.0
+  bower: 1.8.0,
+  nodemon: 1.11.0
 
 ### Installing Dependencies
 
 From within the root directory:
 
-
+ensure mongo is running
 sudo npm install -g bower
 npm install
 bower install
 npm start
 localhost:8000
+
+Obtain Google Maps API Key with Geocoder functionality as well
+Obtain Flicker API Key
 
 
 ### Roadmap
