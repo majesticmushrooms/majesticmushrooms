@@ -24,6 +24,8 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       //testAPI();
+      document.getElementById('status').innerHTML =
+        'Welcome to Around80, ' + response.name + '!';
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
